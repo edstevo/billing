@@ -1,0 +1,18 @@
+{
+    "name": "edstevo/billing",
+    "description": "Laravel package for billing",
+    "authors": [
+        {
+            "name": "edstevo",
+            "email": "edward.stephenson@me.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EdStevo\\Billing\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7"
+    }
+}
