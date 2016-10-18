@@ -7,7 +7,6 @@
 
 namespace EdStevo\Billing\PaymentSystems\Stripe;
 
-
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use EdStevo\Billing\Contracts\Token as TokenContract;
 
@@ -28,7 +27,8 @@ class Token implements TokenContract
     {
 
         return Stripe::tokens()->create([
-            "card" => [
+
+            "card"  => [
                 "number" => $number,
                 "exp_month" => $exp_month,
                 "exp_year" => $exp_year,

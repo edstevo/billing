@@ -7,6 +7,30 @@
 
 return [
 
-    "customer_model"    => \App\Models\Customer::class
+    /*
+    |--------------------------------------------------------------------------
+    | Customer Model
+    |--------------------------------------------------------------------------
+    |
+    | This defines the model which the package will consider the customer.
+    |
+    | Suggested: \App\Models\Customer::class
+    |
+    */
+
+    "customer_model"    => \App\Models\Customer::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Payment System Driver
+    |--------------------------------------------------------------------------
+    |
+    | This defines the payment system that the package will use.
+    |
+    | Supported: "stripe"
+    |
+    */
+
+    "driver"    => "stripe"
 
 ];
