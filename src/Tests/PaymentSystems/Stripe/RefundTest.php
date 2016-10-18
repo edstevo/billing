@@ -7,7 +7,7 @@
 
 namespace Tests\Utilities\Billing\PaymentSystem;
 
-use EdStevo\Billing\Helpers\StripeTest;
+use EdStevo\Billing\Tests\Helpers\StripeTest;
 use EdStevo\Billing\Tests\BillingTestCase;
 
 class RefundTest extends BillingTestCase

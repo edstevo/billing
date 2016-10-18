@@ -9,9 +9,11 @@ namespace Tests\Utilities\Billing\PaymentSystem;
 
 use EdStevo\Billing\Models\PaymentCard;
 use EdStevo\Billing\Tests\BillingTestCase;
+use EdStevo\Billing\Tests\Helpers\StripeTest;
 
 class CardTest extends BillingTestCase
 {
+    use StripeTest;
 
     public function testStore()
     {

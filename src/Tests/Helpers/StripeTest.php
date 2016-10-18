@@ -5,7 +5,7 @@
  *  You must get permission to use this work.
  */
 
-namespace EdStevo\Billing\Helpers;
+namespace EdStevo\Billing\Tests\Helpers;
 
 trait StripeTest
 {
