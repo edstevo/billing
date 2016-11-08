@@ -7,6 +7,7 @@
 
 namespace EdStevo\Billing\PaymentSystems\Stripe;
 
+use Carbon\Carbon;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use EdStevo\Billing\Contracts\Charge as ChargeContract;
 use EdStevo\Billing\Contracts\IsChargable;
@@ -68,7 +69,7 @@ class Charge implements ChargeContract
     {
         return [
             'id'        => $charge['id'],
-            'created'   => $charge['created'],
+            'created'   => Carbon::createFromTimestamp($charge['created']),
             'paid'      => $charge['paid'],
             'status'    => $charge['status']
         ];
