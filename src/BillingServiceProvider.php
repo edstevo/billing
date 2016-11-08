@@ -7,6 +7,7 @@
 
 namespace EdStevo\Billing;
 
+use EdStevo\Billing\PaymentSystems\Stripe\Charge as StripeChargeRepository;
 use EdStevo\Billing\PaymentSystems\Stripe\Token as StripeTokenRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,6 +34,16 @@ class BillingServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+        $this->app->bind('EdStevo\Billing\Contracts\Charge', function() {
+
+            if(config('billing.driver') == 'stripe')
+            {
+                return new StripeChargeRepository();
+            }
+
+            throw new \Exception("Driver Either Not Defined or Not Supported.");
+        });
 
         $this->app->bind('EdStevo\Billing\Contracts\Token', function() {
 

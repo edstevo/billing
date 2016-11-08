@@ -42,11 +42,20 @@ class Card implements CardContract
      * @param \EdStevo\Billing\Contracts\IsChargable $customer
      * @param string                                 $token
      *
-     * @return mixed
+     * @return \EdStevo\Billing\Models\PaymentCard
      */
-    public function store(IsChargable $customer, string $token)
+    public function store(IsChargable $customer, string $token) : PaymentCard
     {
-        return Stripe::cards()->create($customer->getPaymentSystemId(), $token);
+        $card   = Stripe::cards()->create($customer->getPaymentSystemId(), $token);
+
+        return PaymentCard::create([
+            'customer_id'   => $customer->getId(),
+            'type'          => $card['brand'],
+            'exp_month'     => $card['exp_month'],
+            'exp_year'      => $card['exp_year'],
+            'last4'         => $card['last4'],
+            'payment_id'    => $card['id']
+        ]);
     }
 
     /**
@@ -55,9 +64,9 @@ class Card implements CardContract
      * @param \EdStevo\Billing\Contracts\IsChargable $customer
      * @param \EdStevo\Billing\Models\PaymentCard    $card
      *
-     * @return mixed
+     * @return bool
      */
-    public function delete(IsChargable $customer, PaymentCard $card)
+    public function delete(IsChargable $customer, PaymentCard $card) : bool
     {
         $result = Stripe::cards()->delete($customer->getPaymentSystemId(), $card->payment_id);
         return $result['deleted'];

@@ -7,6 +7,9 @@
 
 namespace EdStevo\Billing\Contracts;
 
+use EdStevo\Billing\Models\PaymentCard;
+use Illuminate\Support\Collection;
+
 interface HoldsPaymentCards
 {
 
@@ -22,14 +25,14 @@ interface HoldsPaymentCards
      *
      * @param string $token
      *
-     * @return \App\Models\PaymentCard
+     * @return \EdStevo\Billing\Models\PaymentCard
      */
     public function storeCard(string $token) : PaymentCard;
 
     /**
      * Remove a card from storage and the billing system
      *
-     * @param \App\Models\PaymentCard $card
+     * @param \EdStevo\Billing\Models\PaymentCard $card
      *
      * @return bool
      */

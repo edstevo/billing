@@ -7,7 +7,6 @@
 
 namespace EdStevo\Billing\Helpers;
 
-
 use EdStevo\Billing\Models\PaymentCard;
 use Illuminate\Support\Collection;
 

@@ -23,22 +23,22 @@ interface Card
     public function find(IsChargable $customer, PaymentCard $card);
 
     /**
-     * Put a new card in the billing system and return a payment card
+     * Put a new card in the payment system
      *
      * @param \EdStevo\Billing\Contracts\IsChargable $customer
      * @param string                                 $token
      *
-     * @return mixed
+     * @return \EdStevo\Billing\Models\PaymentCard
      */
-    public function store(IsChargable $customer, string $token);
+    public function store(IsChargable $customer, string $token) : PaymentCard;
 
     /**
-     * Remove a card from the billing system
+     * Remove a card from the payment system
      *
      * @param \EdStevo\Billing\Contracts\IsChargable $customer
      * @param \EdStevo\Billing\Models\PaymentCard    $card
      *
-     * @return mixed
+     * @return bool
      */
-    public function delete(IsChargable $customer, PaymentCard $card);
+    public function delete(IsChargable $customer, PaymentCard $card) : bool;
 }
